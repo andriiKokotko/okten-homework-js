@@ -67,6 +67,18 @@
 // console.log(num, reverseNum);
 
 
+function reverseNum(num) {
+  const a = num % 10;
+  const b = Math.trunc(num / 10) % 10;
+  const c = Math.floor(num / 100);
+  console.log(a, b, c)
+}
+
+reverseNum(432)
+reverseNum(683)
+reverseNum(409)
+
+
 
 // const num = prompt('Enter number of a season')
 // let result
