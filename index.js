@@ -69,9 +69,10 @@
 
 function reverseNum(num) {
   const a = num % 10;
-  const b = Math.trunc(num / 10) % 10;
+  const b = Math.floor(num / 10) % 10;
   const c = Math.floor(num / 100);
-  console.log(a, b, c)
+  
+  console.log(a * 100 + b * 10 + c)
 }
 
 reverseNum(432)
