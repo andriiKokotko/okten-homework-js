@@ -140,3 +140,28 @@ console.log(mergeArr([1, 4, 7, 8], [1, 6, 8, 0], addition));
 console.log(mergeArr([1, 4, 7, 8], [1, 6, 8, 0], subtraction));
 console.log(mergeArr([1, 4, 7, 8], [1, 6, 8, 0], multiplication));
 console.log(mergeArr([1, 4, 7, 8], [1, 6, 8, 0], division));
+
+
+const categories = [
+  {id: 'animals', parent: null},
+  {id: 'mammals', parent: 'animals'},
+  {id: 'dog', parent: 'mammals'},
+  {id: 'cat', parent: 'mammals'},
+  {id: 'foxhound', parent: 'dog'},
+  {id: 'beagle', parent: 'dog'},
+  {id: 'snowshoe', parent: 'cat'},
+  {id: 'persian', parent: 'cat'}
+]
+
+function treeCategories(categories, parent) {
+  let node = {};
+  categories.filter(category => category.parent === parent)
+            .forEach(category => {
+              node[category.id] = treeCategories(categories, category.id);
+            });
+  return node;
+}
+
+console.log(
+  JSON.stringify(treeCategories(categories, null), null, 2)
+);
